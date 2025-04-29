@@ -16,3 +16,4 @@ SELECT * FROM student;
 INSERT INTO student (name, id, rollno) VALUES ("Nik", 3, 33);   -- used to enter values in any orders
 
 INSERT INTO student (name, id, rollno) VALUES ("Dharambir", 4, 32);   -- used to enter values in any orders
+

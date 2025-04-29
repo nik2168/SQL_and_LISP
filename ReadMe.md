@@ -157,6 +157,66 @@ SELECT payMODE, COUNT(payMODE) FROM payData GROUP BY payMODE; -> will group all 
 -- HAVING condition
 -- ORDER BY column(s) ASC;
 
+
+### Example Queries for Clauses in SQL:
+
+1. **WHERE Clause**: Used to filter records based on a condition.
+    ```sql
+    SELECT * 
+    FROM students 
+    WHERE age > 20;
+    ```
+    *Explanation*: This query retrieves all records from the `students` table where the age is greater than 20.
+
+2. **FROM Clause**: Specifies the table to retrieve data from.
+    ```sql
+    SELECT name, age 
+    FROM students;
+    ```
+    *Explanation*: This query retrieves the `name` and `age` columns from the `students` table.
+
+3. **GROUP BY Clause**: Groups rows that have the same values in specified columns.
+    ```sql
+    SELECT department, COUNT(*) 
+    FROM students 
+    GROUP BY department;
+    ```
+    *Explanation*: This query counts the number of students in each department by grouping rows based on the `department` column.
+
+4. **HAVING Clause**: Filters groups based on a condition.
+    ```sql
+    SELECT department, AVG(age) 
+    FROM students 
+    GROUP BY department 
+    HAVING AVG(age) > 21;
+    ```
+    *Explanation*: This query calculates the average age of students in each department and filters the results to include only departments where the average age is greater than 21.
+
+5. **ORDER BY Clause**: Sorts the result set in ascending or descending order.
+    ```sql
+    SELECT * 
+    FROM students 
+    ORDER BY age DESC;
+    ```
+    *Explanation*: This query retrieves all records from the `students` table and sorts them in descending order by age.
+
+6. **LIMIT Clause**: Limits the number of rows returned by a query.
+    ```sql
+    SELECT * 
+    FROM students 
+    LIMIT 5;
+    ```
+    *Explanation*: This query retrieves the first 5 rows from the `students` table.
+
+7. **OFFSET Clause**: Skips a specified number of rows before starting to return rows.
+    ```sql
+    SELECT * 
+    FROM students 
+    LIMIT 5 OFFSET 10;
+    ```
+    *Explanation*: This query skips the first 10 rows and retrieves the next 5 rows from the `students` table.
+
+
 ### Update cmds in Sql:
 1. UPDATE table_name
    SET column1 = value1, column2 = value2
@@ -168,6 +228,9 @@ SELECT payMODE, COUNT(payMODE) FROM payData GROUP BY payMODE; -> will group all 
 
 ### Delete cmds in Sql:
 1. DELETE FROM table_name WHERE condition;
+
+
+
 
 # Commands
 
@@ -216,3 +279,19 @@ SELECT payMODE, COUNT(payMODE) FROM payData GROUP BY payMODE; -> will group all 
 15. CREATE INDEX idx_name                                    - Creates an index on the name column
     ON students(name);
 
+
+
+### Examples of Complex Integrity Constraints Using Triggers
+
+## Example 1: Enforce Salary Cap Based on Job Role
+-- Ensure that no employee's salary exceeds 100,000 if their role is "Junior".
+
+CREATE TRIGGER check_salary
+BEFORE INSERT ON Employee
+FOR EACH ROW
+BEGIN
+   IF NEW.Role = 'Junior' AND NEW.Salary > 100000 THEN
+      SIGNAL SQLSTATE '45000' 
+      SET MESSAGE_TEXT = 'Salary exceeds limit for Junior role';
+   END IF;
+END;
