@@ -2,6 +2,26 @@
 ;; Run cmd -  clisp "/Users/nik21/Desktop/LISP/First.lisp"
 
 
+(funcall (lambda (x y) (format t "adding number ~a and ~a~%" x y) (print (+ x y))) 2 3)
+
+; (setq my-list '(1 2 3 4 5 6 7))
+; (mapcar (lambda (x) (print x)) `(1 2 3))
+
+; (defun checkEvenOdd (x)
+;   (if (= (mod x 2) 0)
+;       (format t "Even")
+;       (format t "Odd")
+;       )
+; )
+
+
+; (checkEvenOdd 2)
+; (print (list 3 2 4 5 6 7 8 9 9 9))
+; (print (mapcar (lambda (x) (* x 2)) '(1 2 3 4)))
+;; => (2 4 6 8)
+; ((lambda (x) (print (* x 3))) 4)
+
+
 
 
 ; closure and lamba function -

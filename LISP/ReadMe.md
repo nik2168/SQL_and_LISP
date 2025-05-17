@@ -45,6 +45,29 @@ LISP programs are composed of expressions, which are either atoms or lists. The 
 
 Understanding these core concepts is essential for working with LISP, as they form the basis of all LISP programs and allow for powerful and flexible programming paradigms.
 
+### Operators in Lisp
+
+Lisp uses prefix notation for operators. The following table lists several common operators in Lisp with their usage examples.
+
+Operator | Example
+---------|-------
+Arithmetic Operators
+`+` | `(+ 2 3)` => 5
+`-` | `(- 3 2)` => 1
+`*` | `(* 2 3)` => 6
+`/` | `(/ 6 2)` => 3
+Relational Operators
+`=`, `EQ` | `(= 2 2)` => T
+`<>`, `NEQ` | `(< 2 3)` => T
+`>`, `GT` | `(> 3 2)` => T
+`<`, `LT` | `(< 2 3)` => T
+`>=`, `GEQ` | `(>= 3 2)` => T
+`<=`, `LEQ` | `(<= 2 3)` => T
+Logical Operators
+`AND` | `(and (= 2 2) (> 3 2))` => T
+`OR` | `(or (= 2 3) (> 3 2))` => T
+`NOT` | `(not (= 2 3))` => T
+
 
 
 ### Working of Lisp Program -

@@ -28,6 +28,9 @@ A primary key is a column or set of columns that uniquely identify each row in a
 A foreign key is a column or set of columns that references a primary key in another table. A foreign key is used to ensure that each row in a table references a valid row in another table.
 
 
+## nested sql queries
+
+SELECT * FROM students WHERE age > (SELECT AVG(age) FROM students);
 
 ### Constraints in Sql:
 1. NOT NULL constraint: Ensures that a column cannot have a null value.
@@ -111,6 +114,11 @@ A foreign key is a column or set of columns that references a primary key in ano
 
     The above example will create an index on the name column of the students table.
 
+### views in sql
+
+CREATE VIEW student_view AS
+SELECT id, name, age
+FROM students;
 
 ### Clauses in SQL :
 1. WHERE Clause: Used to filter records in a query.
@@ -231,6 +239,34 @@ SELECT payMODE, COUNT(payMODE) FROM payData GROUP BY payMODE; -> will group all 
 
 
 
+### joins in sql:
+1. INNER JOIN
+2. LEFT JOIN
+3. RIGHT JOIN
+
+
+### INNER JOIN:
+
+SELECT *
+FROM table1
+INNER JOIN table2
+ON table1.column1 = table2.column2;
+
+
+### LEFT JOIN:
+
+SELECT *
+FROM table1
+LEFT JOIN table2
+ON table1.column1 = table2.column2;
+
+
+### RIGHT JOIN:
+
+SELECT *
+FROM table1
+RIGHT JOIN table2   
+ON table1.column1 = table2.column2;
 
 # Commands
 
@@ -295,3 +331,4 @@ BEGIN
       SET MESSAGE_TEXT = 'Salary exceeds limit for Junior role';
    END IF;
 END;
+
